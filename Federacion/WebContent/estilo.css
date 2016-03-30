@@ -1,0 +1,30 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background: #CEECF5;
+}
+
+table  {  
+font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 14px;    
+	margin: 20px;     
+	width: 1000px; 
+	text-align: left;    
+}
+
+table tr:nth-child(odd) {
+	padding-right: 100px;
+	height: 30px;  
+	background-color: #d3d3d3;	
+}
+
+table tr:nth-child(even) {
+	height: 30px; 
+	background-color: #afafaf;
+}
+
+section {
+	margin-left: 50px;
+	margin-right: 200px;
+	text-indent: 20px;
+	text-align : justify;
+}
