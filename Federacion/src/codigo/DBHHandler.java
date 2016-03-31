@@ -102,7 +102,7 @@ public class DBHHandler {
 			ps.setString(3, direccion);
 			ps.setDate(4, fecha);
 			ps.setInt(5, telefono);
-			ps.setDate(6, mail);
+			ps.setString(6, mail);
 			ps.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -113,12 +113,11 @@ public class DBHHandler {
 		this.closeConexion();
 		return true;
 	}
-	public boolean actualizarUsuario(){
+	public boolean actualizarUsuario(String contraseña){
 		this.openConexion();
 		try {
-			ps = conn.prepareStatement("update ciclismo.usuario set cUser=?, cContraseña=?");
-			ps.setString(1, nombre);
-			ps.setString(2, apellidos);
+			ps = conn.prepareStatement("update ciclismo.usuario set cContraseña=?");
+			ps.setString(1, contraseña);
 			ps.executeUpdate();
 			
 		} catch (SQLException e) {

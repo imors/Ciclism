@@ -26,9 +26,11 @@ body{
   font-size: 14px;
   font-family: Helvetica;
   line-height: 1;
+  
 }
 #cssmenu {
   width: auto;
+  align: center;
 }
 #cssmenu ul {
   zoom: 1;
@@ -40,6 +42,7 @@ body{
   -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+  display: table-cell;
 }
 #cssmenu ul:before {
   content: '';
@@ -94,6 +97,7 @@ body{
 
 .iniciarSesion{
 	margin: auto;
+	background: #C0C0C0;
 }
 .reg{
 	text-align: right;
