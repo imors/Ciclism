@@ -93,4 +93,81 @@ public class DBHHandler {
 		
 	}
 	//Al dar de alta un usuario k ya este k salga error
+	public boolean actualizarDatos(String nombre, String apellidos, String direccion, Date fecha, int telefono, String mail){
+		this.openConexion();
+		try {
+			ps = conn.prepareStatement("update ciclismo.usuario set cName=?, cApellidos=?, cDireccion=?, cFechaN=?, cTelefono=?, cMail=?");
+			ps.setString(1, nombre);
+			ps.setString(2, apellidos);
+			ps.setString(3, direccion);
+			ps.setDate(4, fecha);
+			ps.setInt(5, telefono);
+			ps.setDate(6, mail);
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("Error.");
+			e.printStackTrace();
+			return false;
+		}
+		this.closeConexion();
+		return true;
+	}
+	public boolean actualizarUsuario(){
+		this.openConexion();
+		try {
+			ps = conn.prepareStatement("update ciclismo.usuario set cUser=?, cContraseña=?");
+			ps.setString(1, nombre);
+			ps.setString(2, apellidos);
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("Error.");
+			e.printStackTrace();
+			return false;
+		}
+		this.closeConexion();
+		return true;
+	}
+	public void solicitarLicencia(String tipo){
+		this.openConexion();
+		
+		try {
+			ps = conn.prepareStatement("INSERT INTO usuario VALUES (?,?,?,?,?)");
+			ps.setString(1, userName);
+			ps.setString(2, password);
+			ps.setString(3, nombre);
+			ps.setString(4, apellidos);
+			ps.setString(5, direccion);
+			ps.setDate(6, fecha);
+			ps.setInt(7, telefono);
+			ps.setString(8, mail);
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("Error.");
+			e.printStackTrace();
+			return false;
+		}
+		this.closeConexion();
+		return true;
+	}
+	public void actualizarLicencia(){
+		
+	}
+	public boolean tieneLicencia(){
+		this.openConexion();
+		try{
+			ps=conn.prepareStatement();
+			String sql="Select * from ciclismo.licencia where cUsuario=userName;";
+			ResultSet resultado=conectar.getStatement().executeQuery(sql);
+			while (resultado.next()){
+				String oferta= "Codigo"+resultado.getString(1)+" Dadena "+resultado.getString(2)+" Entrada "+resultado.getString(3)+" Salida "+resultado.getString(4)+" Precio"+resultado.getString(5);
+				lista.add(oferta);
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		conectar.closeConexion();
+	}
 }
